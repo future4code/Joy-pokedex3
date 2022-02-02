@@ -1,16 +1,42 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import BASE_URL from '../../constants/baseURL';
+import { 
+  Box,
+  Image,
+  ButtonGroup,
+  IconButton,
+  Button,
+  Grid,
+  GridItem,
+  Flex,
+  Icon
+} from '@chakra-ui/react';
+import { 
+AddIcon,
+SearchIcon
+} from '@chakra-ui/icons'
+import {
+  FaFireAlt
+} from 'react-icons/fa'
+import {
+  GiHighGrass
+} from 'react-icons/gi'
+import {
+  IoIosWater
+} from 'react-icons/io'
+import {
+  FcFlashOn
+} from 'react-icons/fc'
+import {
+  BsInfoCircle
+} from 'react-icons/bs'
 
 export default function CardPokemon() {
     const [pokemonList, setPokemonList] = React.useState([])
+
+    
     const getPokemonList = () => {
       axios.get(`${BASE_URL}?limit=20&offset=0/`)
       .then((res) => {
@@ -25,36 +51,56 @@ export default function CardPokemon() {
     React.useEffect(() =>{
       getPokemonList()
     }, [])
+
   
    const renderedPokemonList = pokemonList.map((pokemon)=>{
-        return (
-            <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        alt="green iguana"
-        height="250"
-        image="data:image/jpeg;base64,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"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {pokemon.name}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {/* Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica */}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Ver Detalhes</Button>
-        <Button size="small">Adicionar à Pokebola</Button>
-      </CardActions>
-    </Card>
-        )
-    })
-    return (
-        <>
-        {renderedPokemonList} 
 
-        </>
+    return (
+      <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
+          <Image src={'https://www.lance.com.br/files/article_main/uploads/2019/05/03/5ccc50ca0b8e5.jpeg'} alt={'Yago Pikachu'} />
+          <Box p='6'>
+            <Box display='flex' alignItems='baseline'>
+              <Box
+                color='gray.500'
+                fontWeight='semibold'
+                letterSpacing='wide'
+                fontSize='xs'
+                textTransform='uppercase'
+                ml='2'
+              >
+                ícone do elemento ex:<Icon as={FaFireAlt} color='red.500' w={'20px'} h={'20px'}/> // <Icon as={GiHighGrass} color='green.400' w={'20px'} h={'20px'}/> // <Icon as={IoIosWater} color='blue.400' w={'20px'} h={'20px'}/> // <Icon as={FcFlashOn} w={'20px'} h={'20px'}/> &bull; número (ou nº da evolução tipo 1/3, sei lá)
+              </Box>
+            </Box>
+
+            <Box
+              mt='1'
+              fontWeight='semibold'
+              as='h4'
+              lineHeight='tight'
+              textTransform={'capitalize'}
+              marginBottom={'5px'}
+              isTruncated
+            >
+              {pokemon.name}
+            </Box>
+            <ButtonGroup size='sm' isAttached variant='outline' marginRight={'5px'}>
+              <Button mr='-px'>Adicionar à Pokedex</Button>
+              <IconButton aria-label='Add to pokedex' icon={<AddIcon />} />
+            </ButtonGroup>
+            <ButtonGroup size='sm' isAttached variant='outline'>
+              <Button mr='-px'>Detalhes</Button>
+              <IconButton aria-label='Details' icon={<BsInfoCircle/>} />
+            </ButtonGroup>
+          </Box>
+        </Box>
+    )
+  })
+
+  return (
+    <Flex align={'center'} justify={'center'}>
+      <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)']} gap={6} align={'center'} marginTop={['13px']}>
+        {renderedPokemonList}
+      </Grid>
+    </Flex>
   );
 }
