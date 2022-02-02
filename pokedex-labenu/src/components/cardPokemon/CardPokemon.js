@@ -10,14 +10,28 @@ import {
   Button,
   Grid,
   GridItem,
-  Flex
+  Flex,
+  Icon
 } from '@chakra-ui/react';
 import { 
 AddIcon,
 SearchIcon
 } from '@chakra-ui/icons'
-
-
+import {
+  FaFireAlt
+} from 'react-icons/fa'
+import {
+  GiHighGrass
+} from 'react-icons/gi'
+import {
+  IoIosWater
+} from 'react-icons/io'
+import {
+  FcFlashOn
+} from 'react-icons/fc'
+import {
+  BsInfoCircle
+} from 'react-icons/bs'
 
 export default function CardPokemon() {
     const [pokemonList, setPokemonList] = React.useState([])
@@ -54,7 +68,7 @@ export default function CardPokemon() {
                 textTransform='uppercase'
                 ml='2'
               >
-                ícone do tipo &bull; número (ou nº da evolução tipo 1/3, sei lá)
+                ícone do elemento ex:<Icon as={FaFireAlt} color='red.500' w={'20px'} h={'20px'}/> // <Icon as={GiHighGrass} color='green.400' w={'20px'} h={'20px'}/> // <Icon as={IoIosWater} color='blue.400' w={'20px'} h={'20px'}/> // <Icon as={FcFlashOn} w={'20px'} h={'20px'}/> &bull; número (ou nº da evolução tipo 1/3, sei lá)
               </Box>
             </Box>
 
@@ -63,6 +77,8 @@ export default function CardPokemon() {
               fontWeight='semibold'
               as='h4'
               lineHeight='tight'
+              textTransform={'capitalize'}
+              marginBottom={'5px'}
               isTruncated
             >
               {pokemon.name}
@@ -73,7 +89,7 @@ export default function CardPokemon() {
             </ButtonGroup>
             <ButtonGroup size='sm' isAttached variant='outline'>
               <Button mr='-px'>Detalhes</Button>
-              <IconButton aria-label='Details' icon={<SearchIcon/>} />
+              <IconButton aria-label='Details' icon={<BsInfoCircle/>} />
             </ButtonGroup>
           </Box>
         </Box>
