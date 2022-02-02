@@ -21,6 +21,8 @@ SearchIcon
 
 export default function CardPokemon() {
     const [pokemonList, setPokemonList] = React.useState([])
+
+    
     const getPokemonList = () => {
       axios.get(`${BASE_URL}?limit=20&offset=0/`)
       .then((res) => {
@@ -35,8 +37,10 @@ export default function CardPokemon() {
     React.useEffect(() =>{
       getPokemonList()
     }, [])
+
   
    const renderedPokemonList = pokemonList.map((pokemon)=>{
+
     return (
       <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
           <Image src={'https://www.lance.com.br/files/article_main/uploads/2019/05/03/5ccc50ca0b8e5.jpeg'} alt={'Yago Pikachu'} />
@@ -78,7 +82,7 @@ export default function CardPokemon() {
 
   return (
     <Flex align={'center'} justify={'center'}>
-      <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)']} gap={6} align={'center'}>
+      <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)']} gap={6} align={'center'} marginTop={['13px']}>
         {renderedPokemonList}
       </Grid>
     </Flex>
