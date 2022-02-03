@@ -35,33 +35,47 @@ import {
 import GlobalState from '../../contexts/GlobalState';
 
 export default function CardPokemon() {
-  //   const [pokemonList, setPokemonList] = React.useState([])
+    const [pokemonList, setPokemonList] = React.useState([])
 
     
-  //   const getPokemonList = () => {
-  //     axios.get(`${BASE_URL}?limit=20&offset=0/`)
-  //     .then((res) => {
-  //         setPokemonList(res.data.results)
-  //         console.log(res.data.results)
-  //     })
-  //     .catch((err) => {
-  //         console.log(err)
-  //     })
-  //   }
+    const getPokemonList = () => {
+      axios.get(`${BASE_URL}?limit=15&offset=0/`)
+      .then((res) => {
+          setPokemonList(res.data.results)
+          // console.log(res.data.results)
+      })
+      .catch((err) => {
+          console.log(err)
+      })
+    }
   
-  //   React.useEffect(() =>{
-  //     getPokemonList()
-  //   }, [])
+    React.useEffect(() =>{
+      getPokemonList()
+    }, [])
 
   
-  //  const renderedPokemonList = pokemonList.map((pokemon)=>{
 
-  const pokemon = React.useContext(GlobalState)
+    
+    let number = 0
 
+    const pokeNumber = () => {
+      while (number <= 20) {
+        console.log(number)
+        number ++;
+
+        return number
+      }
+    }
+  
+   const renderedPokemonList = pokemonList.map((pokemon)=>{
 
     return (
       <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
-          <Image src={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png'} w={'200px'} alt={pokemon.name} />
+          <Image 
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeNumber()}.png`}  
+            w={'200px'}
+            maxW={'200px'}                                                                                        
+            alt={pokemon.name} />                                                                               
           <Box p='6'>
             <Box display='flex' alignItems='baseline'>
               <Box
