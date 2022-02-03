@@ -32,32 +32,36 @@ import {
 import {
   BsInfoCircle
 } from 'react-icons/bs'
+import GlobalState from '../../contexts/GlobalState';
 
 export default function CardPokemon() {
-    const [pokemonList, setPokemonList] = React.useState([])
+  //   const [pokemonList, setPokemonList] = React.useState([])
 
     
-    const getPokemonList = () => {
-      axios.get(`${BASE_URL}?limit=20&offset=0/`)
-      .then((res) => {
-          setPokemonList(res.data.results)
-          console.log(res.data.results)
-      })
-      .catch((err) => {
-          console.log(err)
-      })
-    }
+  //   const getPokemonList = () => {
+  //     axios.get(`${BASE_URL}?limit=20&offset=0/`)
+  //     .then((res) => {
+  //         setPokemonList(res.data.results)
+  //         console.log(res.data.results)
+  //     })
+  //     .catch((err) => {
+  //         console.log(err)
+  //     })
+  //   }
   
-    React.useEffect(() =>{
-      getPokemonList()
-    }, [])
+  //   React.useEffect(() =>{
+  //     getPokemonList()
+  //   }, [])
 
   
-   const renderedPokemonList = pokemonList.map((pokemon)=>{
+  //  const renderedPokemonList = pokemonList.map((pokemon)=>{
+
+  const pokemon = React.useContext(GlobalState)
+
 
     return (
       <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
-          <Image src={'https://www.lance.com.br/files/article_main/uploads/2019/05/03/5ccc50ca0b8e5.jpeg'} alt={'Yago Pikachu'} />
+          <Image src={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png'} w={'200px'} alt={pokemon.name} />
           <Box p='6'>
             <Box display='flex' alignItems='baseline'>
               <Box
