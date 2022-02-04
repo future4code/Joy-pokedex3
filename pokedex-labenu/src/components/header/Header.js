@@ -35,11 +35,11 @@ function Header() {
             aria-label='Options'
             icon={<HamburgerIcon />}
             variant='outline'
-            bg={'red.50'}
+            bg={'#565b6a'}
             width={'50px'}
             height={'50px'}
             _hover={{
-              bg: "red.400"
+              bg: "#616778"
             }}
           />
           <MenuList justify={'center'} align={'center'}>
