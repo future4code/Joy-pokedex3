@@ -41,7 +41,7 @@ export default function CardPokemon() {
     const navigate = useNavigate()
     
     const getPokemonList = () => {
-      axios.get(`${BASE_URL}?limit=15&offset=0/`)
+      axios.get(`${BASE_URL}?limit=26&offset=0/`)
       .then((res) => {
           setPokemonList(res.data.results)
           // console.log(res.data.results)
@@ -59,7 +59,7 @@ export default function CardPokemon() {
     let number = 0
 
     const pokeNumber = () => {
-      while (number <= 20) {
+      while (number <= 26) {
         console.log(number)
         number ++;
 
@@ -72,7 +72,7 @@ export default function CardPokemon() {
     return (
       <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
           <Image 
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeNumber()}.png`}  
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeNumber()}.png`}  
             w={'200px'}
             maxW={'200px'}                                                                                        
             alt={pokemon.name} />                                                                               

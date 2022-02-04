@@ -27,7 +27,7 @@ from 'react-icons/md'
 function Header() {
     const navigate = useNavigate()
   return (
-      <Flex w={"100%"} bg={"red.500"} boxShadow={'2xl'} h={['125px']} justify={'space-around'} align={'center'}>
+      <Flex w={"100%"} bg={"#343740"} boxShadow={'2xl'} h={['125px']} justify={'space-around'} align={'center'}>
         <Image src={logo} onClick={() => goToHome(navigate)} _hover={{cursor: "pointer"}} maxW={'200px'}></Image>
         <Menu>
           <MenuButton
