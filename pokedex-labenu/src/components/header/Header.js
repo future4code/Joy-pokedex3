@@ -44,7 +44,7 @@ function Header() {
           />
           <MenuList justify={'center'} align={'center'}>
             <MenuItem>
-              <Icon as={MdHome} w={'20px'} h={'20px'} marginRight={'8px'}/>
+              <Icon onClick={() => goToHome(navigate)} as={MdHome} w={'20px'} h={'20px'} marginRight={'8px'}/>
               Home
             </MenuItem>
             <MenuItem>

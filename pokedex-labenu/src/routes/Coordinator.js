@@ -1,3 +1,5 @@
+import { IdProvider } from "@chakra-ui/hooks"
+
 export const goToHome = (navigate) => {
     navigate("/")
 }
@@ -6,6 +8,6 @@ export const goToPokedex = (navigate) => {
     navigate("/Pokedex")
 }
 
-export const goToDetalhes = (navigate, id) => {
-    navigate(`/Detalhes/${id}`)
+export const goToDetalhes = (navigate, name) => {
+    navigate(`/Detalhes/${name}`)
 } 

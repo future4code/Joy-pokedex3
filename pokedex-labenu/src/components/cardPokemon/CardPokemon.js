@@ -2,6 +2,8 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import BASE_URL from '../../constants/baseURL';
+import { goToDetalhes } from "../../routes/Coordinator";
+import { useNavigate } from "react-router-dom";
 import { 
   Box,
   Image,
@@ -36,7 +38,7 @@ import GlobalState from '../../contexts/GlobalState';
 
 export default function CardPokemon() {
     const [pokemonList, setPokemonList] = React.useState([])
-
+    const navigate = useNavigate()
     
     const getPokemonList = () => {
       axios.get(`${BASE_URL}?limit=15&offset=0/`)
@@ -53,9 +55,7 @@ export default function CardPokemon() {
       getPokemonList()
     }, [])
 
-  
 
-    
     let number = 0
 
     const pokeNumber = () => {
@@ -106,8 +106,8 @@ export default function CardPokemon() {
               <IconButton aria-label='Add to pokedex' icon={<AddIcon />} />
             </ButtonGroup>
             <ButtonGroup size='sm' isAttached variant='outline'>
-              <Button mr='-px'>Detalhes</Button>
-              <IconButton aria-label='Details' icon={<BsInfoCircle/>} />
+              <Button  onClick={() => goToDetalhes(navigate, pokemon.name)} mr='-px'>Detalhes</Button>
+              <IconButton  onClick={() => goToDetalhes(navigate)} aria-label='Details' icon={<BsInfoCircle/>} />
             </ButtonGroup>
           </Box>
         </Box>
