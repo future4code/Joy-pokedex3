@@ -38,7 +38,22 @@ import GlobalState from '../../contexts/GlobalState';
 
 export default function CardPokemon() {
     const [pokemonList, setPokemonList] = React.useState([])
+    const params = useParams();
+    const [pokemon] = useRequestData(`${params.name}`);
+    const pokeType = pokemon && pokemon?.types[0]?.type?.name;
     const navigate = useNavigate()
+
+    const pokemonTypes =
+    pokemon &&
+    pokemon.types.map((pokemon) => {
+      return (
+        <TypeButton key={pokemon.id} type={pokemon.type.name}>
+          <img src={`/icons/${pokemon.type.name}.svg`} alt="imagem"/>
+          <p>{pokemon.type.name}</p>
+        </TypeButton>
+      );
+    });
+
     
     const getPokemonList = () => {
       axios.get(`${BASE_URL}?limit=26&offset=0/`)

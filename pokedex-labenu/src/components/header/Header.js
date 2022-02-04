@@ -39,13 +39,13 @@ function Header() {
             width={'50px'}
             height={'50px'}
             _hover={{
-              bg: "red.400"
+              bg: "#696f81"
             }}
           />
           <MenuList justify={'center'} align={'center'}>
             <MenuItem>
               <Icon onClick={() => goToHome(navigate)} as={MdHome} w={'20px'} h={'20px'} marginRight={'8px'}/>
-              Home
+             <p onClick={() => goToHome(navigate)}>Home</p> 
             </MenuItem>
             <MenuItem>
               <Icon as={MdOutlineCatchingPokemon} w={'20px'} h={'20px'} marginRight={'8px'}/>
