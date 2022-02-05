@@ -16,6 +16,13 @@ import {
     DivMaior,
     DivMoves
   } from "./styled";
+import { 
+  Box,
+  Flex,
+  Grid,
+  GridItem,
+  Heading
+} from '@chakra-ui/react'
 
   const DetalhesPage = () => {
     const params = useParams();
@@ -35,7 +42,7 @@ import {
   
     const pokemonMoves =
       pokemon &&
-      pokemon.moves.slice(0, 4).map((pokemon) => {
+      pokemon.moves.slice(0, 5).map((pokemon) => {
         return <p key={pokemon.id}>- {pokemon.move.name}</p>;
       });
   
@@ -65,24 +72,65 @@ import {
                 src={pokemon.sprites.other["official-artwork"].front_default}
                 alt={pokemon.name}
               />
-              <h1>{pokemon.name}</h1>
-            </CardPokemon>
-            <DescriptionContainer>
-              <DivMoves>
-                <TypesContainer>
-                  {pokemon.types.length > 1 ? <h1>Types</h1> : <h1>Type</h1>}
-                  <div>{pokemonTypes}</div>
-                </TypesContainer>
-                <MovesContainer>
-                  <h1>Moves</h1>
-                  <div>{pokemonMoves}</div>
-                </MovesContainer>
-              </DivMoves>
-              <StatsContainer>
-                <h1>Stats</h1>
-                <div>{pokemonStats}</div>
-              </StatsContainer>
-            </DescriptionContainer>
+              </CardPokemon>
+              <Grid
+                  // h='200px'
+                  rows='repeat(3, 1fr)'
+                  columns='repeat(2, 1fr)'
+                  // gap={4}
+                  justifyContent={'center'}
+                  gap={15}
+                >
+                  <GridItem rowSpan={1} colSpan={2} marginBottom={'20px'}>
+                    <Heading as='h1' size='2xl' alignSelf={'center'} textAlign={'center'} textTransform={'capitalize'}>
+                      {pokemon.name}
+                    </Heading>
+                  </GridItem>
+                  {/* <DivMoves> */}
+                  <GridItem rowSpan={1} colSpan={1} w={['250px']}>
+                    <Box
+                      p={5}
+                      shadow='md'
+                      borderWidth='1px'
+                      flex='1'
+                      borderRadius='md'
+                      gap={2}
+                      // marginBottom={'15px'}
+                    >
+                      {pokemon.types.length > 1 ? <Heading as='h2' size='xl' alignSelf={'center'} textAlign={'center'} marginBottom={'6px'}>Types</Heading> : <Heading as='h2' size='xl' alignSelf={'center'} textAlign={'center'} marginBottom={'5px'}>Type</Heading>}
+                      <Box align={'center'}>{pokemonTypes}</Box>
+                    </Box>
+                  </GridItem>
+                  <GridItem rowSpan={3} colSpan={1} w={'560px'}>
+                    <Box
+                      p={5}
+                      shadow='md'
+                      borderWidth='1px'
+                      flex='1'
+                      borderRadius='md'
+                    >
+                      <Heading as='h2' size='xl' alignSelf={'center'} textAlign={'center'}>
+                        Stats
+                      </Heading>
+                      <div>{pokemonStats}</div>
+                    </Box>
+                  </GridItem>
+                  <GridItem  rowSpan={3} colSpan={1} w={'250px'}>
+                    <Box
+                      p={5}
+                      shadow='md'
+                      borderWidth='1px'
+                      flex='1'
+                      borderRadius='md'>
+                      <Heading as='h2' size='xl' alignSelf={'center'} textAlign={'center'}>Moves</Heading>
+                      <div>{pokemonMoves}</div>
+                    </Box>
+                  </GridItem>
+                  {/* </DivMoves> */}
+                  {/* <StatsContainer> */}
+
+                  {/* </StatsContainer> */}
+              </Grid>
           </DivMaior>
         )}
       </div>
