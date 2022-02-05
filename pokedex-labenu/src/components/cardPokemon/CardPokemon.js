@@ -43,7 +43,7 @@ export default function CardPokemon() {
 
     
     const getPokemonList = () => {
-      axios.get(`${BASE_URL}?limit=26&offset=0/`)
+      axios.get(`${BASE_URL}?limit=150&offset=0/`)
       .then((res) => {
           setPokemonList(res.data.results)
           // console.log(res.data.results)
@@ -61,7 +61,7 @@ export default function CardPokemon() {
     let number = 0
 
     const pokeNumber = () => {
-      while (number <= 26) {
+      while (number <= 150) {
         console.log(number)
         number ++;
 
