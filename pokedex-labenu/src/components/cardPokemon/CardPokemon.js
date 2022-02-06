@@ -102,7 +102,7 @@ export default function CardPokemon() {
             </Box>
             <Tooltip
               label={'Adicionar à Pokedex'}>
-              <ButtonGroup size='sm' isAttached variant='outline' marginRight={'5px'}>
+              <ButtonGroup size='sm' isAttached variant='outline' marginRight={[null, null, '5px']} marginBottom={['7px', null, null]}>
                 <Button mr='-px'>Adicionar à Pokedex</Button>
                 <IconButton aria-label='Add to pokedex' icon={<AddIcon />} />
               </ButtonGroup>
