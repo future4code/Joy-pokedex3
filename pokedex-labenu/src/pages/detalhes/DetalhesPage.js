@@ -21,7 +21,8 @@ import {
   Flex,
   Grid,
   GridItem,
-  Heading
+  Heading,
+  Text
 } from '@chakra-ui/react'
 
   const DetalhesPage = () => {
@@ -66,28 +67,40 @@ import {
         <Header/>
         {pokemon && (
           <DivMaior>
-            <CardPokemon type={pokeType}>
-           {/* //   <h4>Voltar</h4> */}
+            <CardPokemon 
+              type={pokeType}
+            >
               <img
                 src={pokemon.sprites.other["official-artwork"].front_default}
                 alt={pokemon.name}
               />
               </CardPokemon>
               <Grid
-                  // h='200px'
-                  rows='repeat(3, 1fr)'
-                  columns='repeat(2, 1fr)'
-                  // gap={4}
+                  rows={[3]}
+                  columns={[1, 2, 2]}
                   justifyContent={'center'}
                   gap={15}
+                  flexWrap={'wrap'}
                 >
-                  <GridItem rowSpan={1} colSpan={2} marginBottom={'20px'}>
-                    <Heading as='h1' size='2xl' alignSelf={'center'} textAlign={'center'} textTransform={'capitalize'}>
+                  <GridItem 
+                    rowSpan={[1]} 
+                    colSpan={[2]} 
+                    marginBottom={'20px'}
+                  >
+                    <Heading 
+                      as='h1' 
+                      size='2xl' 
+                      alignSelf={'center'} 
+                      textAlign={'center'} 
+                      textTransform={'capitalize'}>
                       {pokemon.name}
                     </Heading>
                   </GridItem>
-                  {/* <DivMoves> */}
-                  <GridItem rowSpan={1} colSpan={1} w={['250px']}>
+                  <GridItem 
+                    rowSpan={[1]} 
+                    colSpan={[1]} 
+                    w={['95vw', '250px', '250px']}
+                  >
                     <Box
                       p={5}
                       shadow='md'
@@ -95,13 +108,37 @@ import {
                       flex='1'
                       borderRadius='md'
                       gap={2}
-                      // marginBottom={'15px'}
                     >
-                      {pokemon.types.length > 1 ? <Heading as='h2' size='xl' alignSelf={'center'} textAlign={'center'} marginBottom={'6px'}>Types</Heading> : <Heading as='h2' size='xl' alignSelf={'center'} textAlign={'center'} marginBottom={'5px'}>Type</Heading>}
-                      <Box align={'center'}>{pokemonTypes}</Box>
+                      {pokemon.types.length > 1 ? 
+                        <Heading 
+                          as='h2' 
+                          size='xl' 
+                          alignSelf={'center'} 
+                          textAlign={'center'} 
+                          marginBottom={'6px'}
+                        >
+                          Types
+                        </Heading> : 
+                        <Heading 
+                          as='h2' 
+                          size='xl' 
+                          alignSelf={'center'} 
+                          textAlign={'center'} 
+                          marginBottom={'5px'}
+                        >
+                          Type
+                        </Heading>}
+                      <Box 
+                        align={'center'}
+                      >{pokemonTypes}</Box>
                     </Box>
                   </GridItem>
-                  <GridItem rowSpan={3} colSpan={1} w={'560px'}>
+                  <GridItem 
+                    rowSpan={[2, 3, 3]} 
+                    colSpan={[2, 1, 1]}
+                    w={['95vw', '560px', '560px']}
+
+                  >
                     <Box
                       p={5}
                       shadow='md'
@@ -109,27 +146,44 @@ import {
                       flex='1'
                       borderRadius='md'
                     >
-                      <Heading as='h2' size='xl' alignSelf={'center'} textAlign={'center'}>
+                      <Heading 
+                        as='h2' 
+                        size='xl' 
+                        alignSelf={'center'} 
+                        textAlign={'center'}
+                      >
                         Stats
                       </Heading>
-                      <div>{pokemonStats}</div>
+                      <Box 
+                        align={'left'}
+                        textTransform={'capitalize'}
+                      >{pokemonStats}
+                      </Box>
                     </Box>
                   </GridItem>
-                  <GridItem  rowSpan={3} colSpan={1} w={'250px'}>
+                  <GridItem  
+                    rowSpan={[1, 1, 3]} 
+                    colSpan={[1, 1, 1]}
+                    w={['95vw', '250px', '250px']}
+                  >
                     <Box
                       p={5}
                       shadow='md'
                       borderWidth='1px'
                       flex='1'
                       borderRadius='md'>
-                      <Heading as='h2' size='xl' alignSelf={'center'} textAlign={'center'}>Moves</Heading>
-                      <div>{pokemonMoves}</div>
+                      <Heading 
+                        as='h2' 
+                        size='xl' 
+                        alignSelf={'center'} 
+                        textAlign={'center'}
+                      >Moves</Heading>
+                      <Box 
+                        textTransform={'capitalize'}
+                      >{pokemonMoves}
+                      </Box>
                     </Box>
                   </GridItem>
-                  {/* </DivMoves> */}
-                  {/* <StatsContainer> */}
-
-                  {/* </StatsContainer> */}
               </Grid>
           </DivMaior>
         )}
