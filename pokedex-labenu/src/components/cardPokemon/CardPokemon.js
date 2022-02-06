@@ -13,11 +13,11 @@ import {
   Grid,
   GridItem,
   Flex,
-  Icon
+  Icon,
+  Tooltip
 } from '@chakra-ui/react';
 import { 
-AddIcon,
-SearchIcon
+AddIcon
 } from '@chakra-ui/icons'
 import {
   FaFireAlt
@@ -39,11 +39,9 @@ import GlobalState from '../../contexts/GlobalState';
 export default function CardPokemon() {
     const [pokemonList, setPokemonList] = React.useState([])
     const navigate = useNavigate()
-
-
     
     const getPokemonList = () => {
-      axios.get(`${BASE_URL}?limit=150&offset=0/`)
+      axios.get(`${BASE_URL}?limit=15&offset=0/`)
       .then((res) => {
           setPokemonList(res.data.results)
           // console.log(res.data.results)
@@ -61,8 +59,7 @@ export default function CardPokemon() {
     let number = 0
 
     const pokeNumber = () => {
-      while (number <= 150) {
-        console.log(number)
+      while (number <= 20) {
         number ++;
 
         return number
@@ -103,14 +100,21 @@ export default function CardPokemon() {
             >
               {pokemon.name}
             </Box>
-            <ButtonGroup size='sm' isAttached variant='outline' marginRight={'5px'}>
-              <Button mr='-px'>Adicionar à Pokedex</Button>
-              <IconButton aria-label='Add to pokedex' icon={<AddIcon />} />
-            </ButtonGroup>
-            <ButtonGroup size='sm' isAttached variant='outline'>
-              <Button  onClick={() => goToDetalhes(navigate, pokemon.name)} mr='-px'>Detalhes</Button>
-              <IconButton  onClick={() => goToDetalhes(navigate)} aria-label='Details' icon={<BsInfoCircle/>} />
-            </ButtonGroup>
+            <Tooltip
+              label={'Adicionar à Pokedex'}>
+              <ButtonGroup size='sm' isAttached variant='outline' marginRight={'5px'}>
+                <Button mr='-px'>Adicionar à Pokedex</Button>
+                <IconButton aria-label='Add to pokedex' icon={<AddIcon />} />
+              </ButtonGroup>
+            </Tooltip>
+
+            <Tooltip
+              label={'Detalhes'}>
+              <ButtonGroup size='sm' isAttached variant='outline'>
+                <Button  onClick={() => goToDetalhes(navigate, pokemon.name)} mr='-px'>Detalhes</Button>
+                <IconButton  onClick={() => goToDetalhes(navigate, pokemon.name)} aria-label='Details' icon={<BsInfoCircle/>} />
+              </ButtonGroup>
+            </Tooltip>
           </Box>
         </Box>
     )
