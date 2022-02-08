@@ -1,28 +1,19 @@
-import axios from 'axios'
-import { React, useEffect, useState } from 'react'
+import { React } from 'react'
 import { useParams } from 'react-router-dom'
 import useRequestData from "../../hooks/useRequestData";
 import Header from '../../components/header/Header'
-import BASE_URL from '../../constants/baseURL'
 import {
     CardPokemon,
     TypeButton,
     StatsArea,
     StatsItem,
-    TypesContainer,
-    MovesContainer,
-    StatsContainer,
-    DescriptionContainer,
-    DivMaior,
-    DivMoves
+    DivMaior
   } from "./styled";
 import { 
   Box,
-  Flex,
   Grid,
   GridItem,
-  Heading,
-  Text
+  Heading
 } from '@chakra-ui/react'
 
   const DetalhesPage = () => {
@@ -92,7 +83,8 @@ import {
                       size='2xl' 
                       alignSelf={'center'} 
                       textAlign={'center'} 
-                      textTransform={'capitalize'}>
+                      textTransform={'capitalize'}
+                      marginTop={'15px'}>
                       {pokemon.name}
                     </Heading>
                   </GridItem>
@@ -108,6 +100,7 @@ import {
                       flex='1'
                       borderRadius='md'
                       gap={2}
+                      marginLeft={['5vw', 0, 0]}
                     >
                       {pokemon.types.length > 1 ? 
                         <Heading 
@@ -137,7 +130,6 @@ import {
                     rowSpan={[2, 3, 3]} 
                     colSpan={[2, 1, 1]}
                     w={['95vw', '560px', '560px']}
-
                   >
                     <Box
                       p={5}
@@ -145,6 +137,7 @@ import {
                       borderWidth='1px'
                       flex='1'
                       borderRadius='md'
+                      marginLeft={['5vw', 0, 0]}
                     >
                       <Heading 
                         as='h2' 
@@ -171,7 +164,10 @@ import {
                       shadow='md'
                       borderWidth='1px'
                       flex='1'
-                      borderRadius='md'>
+                      borderRadius='md'
+                      marginLeft={['5vw', 0, 0]}
+                      marginBottom={['20px']}
+                      >
                       <Heading 
                         as='h2' 
                         size='xl' 
