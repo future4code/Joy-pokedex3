@@ -41,7 +41,7 @@ export default function CardPokemon() {
     const navigate = useNavigate()
     
     const getPokemonList = () => {
-      axios.get(`${BASE_URL}?limit=15&offset=0/`)
+      axios.get(`${BASE_URL}?limit=20&offset=0/`)
       .then((res) => {
           setPokemonList(res.data.results)
           // console.log(res.data.results)
