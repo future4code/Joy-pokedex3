@@ -5,7 +5,7 @@ export const CardPokemon = styled.div`
   background: ${(props) => typeColor[props.type]};
   display: flex;
   flex-direction: column;
-  height: 350px;
+  height: 44vh;
 
   img {
     align-self: center;
@@ -69,7 +69,14 @@ export const StatsArea = styled.div`
   }
 
   @media screen and (min-device-width : 320px) and (max-device-width : 600px)  {
+    p{
     width:100vw;
+    }
+   
+    
+
+
+
 
   }  
 `;
@@ -92,12 +99,8 @@ export const StatsItem = styled.div`
   }
 
   @media screen and (min-device-width : 320px) and (max-device-width : 600px)  {
-    display:flex;
-    justify-content: flex-start;
-    align-items: center;
-    width:90%;
+    width:20%;
 
-  }  
 `;
 
 export const DescriptionContainer = styled.div`
