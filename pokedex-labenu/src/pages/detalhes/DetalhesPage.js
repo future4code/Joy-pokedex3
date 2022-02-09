@@ -16,6 +16,8 @@ import {
   Heading
 } from '@chakra-ui/react'
 
+
+
   const DetalhesPage = () => {
     const params = useParams();
     const [pokemon] = useRequestData(`${params.name}`);
@@ -28,7 +30,10 @@ import {
           <TypeButton key={pokemon.id} type={pokemon.type.name}>
             <img src={`/icons/${pokemon.type.name}.svg`} alt="imagem"/>
             <p>{pokemon.type.name}</p>
+            {/* <IconButton icon={<MdCatchingPokemon/>} size='sm'/> */}
           </TypeButton>
+
+          
         );
       });
   

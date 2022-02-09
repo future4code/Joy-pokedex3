@@ -5,7 +5,7 @@ export const CardPokemon = styled.div`
   background: ${(props) => typeColor[props.type]};
   display: flex;
   flex-direction: column;
-  height: 44vh;
+  height: 50vh;
 
   img {
     align-self: center;
@@ -62,7 +62,7 @@ export const StatsArea = styled.div`
   display: grid;
   grid-template-columns: 24% 10% 66%;
   grid-gap: 0.1rem;
-  width: 40rem;
+  width: 37rem;
   align-content: end;
   p {
     margin: 0.6rem 0.5rem;

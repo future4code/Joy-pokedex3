@@ -1,7 +1,7 @@
 import { React } from "react";
 import { CustomHeader, LogoBackground, ButtonHeader } from "./styled";
 import logo from "../../assets/Logo.png";
-import { goToPokedex, goToHome, goToTestDark } from "../../routes/Coordinator";
+import { goToPokedex, goToHome} from "../../routes/Coordinator";
 import { useNavigate } from "react-router-dom";
 import { 
 Menu,
@@ -22,7 +22,7 @@ import {
   MdOutlineCatchingPokemon,
   MdHome} 
 from 'react-icons/md'
-import StyleColorMode from "../../pages/teste/TestDark";
+import StyleColorMode from "../../pages/darkMode/DarkModeButton";
 
 
 function Header() {
@@ -53,8 +53,8 @@ function Header() {
               <p onClick={() => goToHome(navigate)}>Home</p> 
               </MenuItem>
               <MenuItem>
-                <Icon as={MdOutlineCatchingPokemon} w={'20px'} h={'20px'} marginRight={'8px'}/>
-                Pokédex
+                <Icon onClick={() => goToPokedex(navigate)} as={MdOutlineCatchingPokemon} w={'20px'} h={'20px'} marginRight={'8px'}/>
+                <p onClick={() => goToPokedex(navigate)}>Pokédex</p>
               </MenuItem>
             </MenuList>
           </Menu>
