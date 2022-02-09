@@ -5,7 +5,7 @@ export const CardPokemon = styled.div`
   background: ${(props) => typeColor[props.type]};
   display: flex;
   flex-direction: column;
-  height: 44vh;
+  height: 50vh;
 
   img {
     align-self: center;

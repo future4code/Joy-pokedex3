@@ -11,8 +11,8 @@ export default function StyleColorMode() {
   
     return (
       <>
-        {colorMode === 'light' ? <IconButton icon={<MoonIcon/>} size='l' onClick={toggleColorMode} width={'40px'} height={'40px'} /> 
-          : <IconButton icon={<SunIcon/>} size='l' onClick={toggleColorMode}  width={'40px'} height={'40px'}/>}
+        {colorMode === 'light' ? <IconButton icon={<MoonIcon/>} bg={'#161b25'} color={'white'}  variant={'outline'} size='l' onClick={toggleColorMode} width={'40px'} height={'40px'} /> 
+          : <IconButton icon={<SunIcon/>} variant={'outline'} size='l' onClick={toggleColorMode}  width={'40px'} height={'40px'}/>}
       </>
     )
   }
