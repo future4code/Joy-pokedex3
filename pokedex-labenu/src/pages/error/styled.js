@@ -7,6 +7,8 @@ export const ErrorPageContainer = styled.div`
   align-items: center;
   margin: 40px;
   p{
+      font-size: 1.8rem;
+      text-align: center;
       margin:20px;
       color: black;
       text-transform: uppercase;
