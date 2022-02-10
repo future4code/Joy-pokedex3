@@ -5,7 +5,7 @@ export const CardPokemon = styled.div`
   background: ${(props) => typeColor[props.type]};
   display: flex;
   flex-direction: column;
-  height: 50vh;
+  height: 44vh;
 
   img {
     align-self: center;
@@ -52,7 +52,8 @@ export const TypeButton = styled.div`
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  
+margin: 5px;
+
   p {
     color: #ffffff;
   }
