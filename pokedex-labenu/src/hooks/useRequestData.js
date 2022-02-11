@@ -15,6 +15,7 @@ const useRequestData = (endpoint) => {
         .then((res) =>{
             setIsLoading(false)
             setData(res.data)
+            console.log(res)
         })
         .catch((err) => {
             setIsLoading(false)

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import BASE_URL from '../../constants/baseURL';
 import { goToDetalhes } from "../../routes/Coordinator";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { 
   Box,
   Image,
@@ -35,10 +35,24 @@ import {
   BsInfoCircle
 } from 'react-icons/bs'
 import GlobalState from '../../contexts/GlobalState';
+import useRequestData from '../../hooks/useRequestData';
 
 export default function CardPokemon() {
     const [pokemonList, setPokemonList] = React.useState([])
     const navigate = useNavigate()
+    // const params = useParams();
+    // const [pokemon] = useRequestData(`${params.name}`);
+  
+    // const pokemonTypes =
+    //   pokemon &&
+    //   pokemon.types.map((pokemon) => {
+    //     return (
+    //       <Box key={pokemon.id} type={pokemon.type.name}>
+    //         <img src={`/icons/${pokemon.type.name}.svg`} alt="imagem"/>
+    //         {/* <p>{pokemon.type.name}</p> */}
+    //       </Box> 
+    //     );
+    //   });
     
     const getPokemonList = () => {
       axios.get(`${BASE_URL}?limit=20&offset=0/`)
@@ -85,7 +99,8 @@ export default function CardPokemon() {
                 textTransform='uppercase'
                 ml='2'
               >
-                ícone do elemento ex:<Icon as={FaFireAlt} color='red.500' w={'20px'} h={'20px'}/> // <Icon as={GiHighGrass} color='green.400' w={'20px'} h={'20px'}/> // <Icon as={IoIosWater} color='blue.400' w={'20px'} h={'20px'}/> // <Icon as={FcFlashOn} w={'20px'} h={'20px'}/> &bull; número (ou nº da evolução tipo 1/3, sei lá)
+                {/* {pokemonTypes} */}
+                {/* ícone do elemento ex:<Icon as={FaFireAlt} color='red.500' w={'20px'} h={'20px'}/> // <Icon as={GiHighGrass} color='green.400' w={'20px'} h={'20px'}/> // <Icon as={IoIosWater} color='blue.400' w={'20px'} h={'20px'}/> // <Icon as={FcFlashOn} w={'20px'} h={'20px'}/> &bull; número (ou nº da evolução tipo 1/3, sei lá) */}
               </Box>
             </Box>
 
@@ -98,7 +113,7 @@ export default function CardPokemon() {
               marginBottom={'5px'}
               isTruncated
             >
-              {pokemon.name}
+              {pokemon.name} 
             </Box>
             <Tooltip
               label={'Adicionar à Pokedex'}>
