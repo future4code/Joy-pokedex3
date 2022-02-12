@@ -58,13 +58,13 @@ function Header() {
               }}
             />
             <MenuList justify={'center'} align={'center'}>
-              <MenuItem>
-                <Icon onClick={() => goToHome(navigate)} as={MdHome} w={'20px'} h={'20px'} marginRight={'8px'}/>
-              <p onClick={() => goToHome(navigate)}>Home</p> 
+              <MenuItem onClick={() => goToHome(navigate)}>
+                <Icon as={MdHome} w={'20px'} h={'20px'} marginRight={'8px'}/>
+              <p>Home</p> 
               </MenuItem>
-              <MenuItem>
-                <Icon onClick={() => goToPokedex(navigate)} as={MdOutlineCatchingPokemon} w={'20px'} h={'20px'} marginRight={'8px'}/>
-                <p onClick={() => goToPokedex(navigate)}>Pokédex</p>
+              <MenuItem onClick={() => goToPokedex(navigate)}>
+                <Icon as={MdOutlineCatchingPokemon} w={'20px'} h={'20px'} marginRight={'8px'}/>
+                <p>Pokédex</p>
               </MenuItem>
             </MenuList>
           </Menu>

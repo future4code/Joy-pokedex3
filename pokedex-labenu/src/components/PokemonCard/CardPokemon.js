@@ -91,7 +91,7 @@ export default function CardPokemon({ name, pokemon, adicionarPokedex}) {
               label={'Adicionar à Pokedex'}>
               <ButtonGroup size='sm' isAttached variant='outline' marginRight={[null, null, '5px']} marginBottom={['7px', null, null]}>
                 <Button mr='-px' onClick={() => adicionarPokedex(pokemon, setPokedex, setOpen, setPokeSnack, setOpenRelease)}>Adicionar à Pokedex</Button>
-                <IconButton aria-label='Add to pokedex' icon={<AddIcon />} />
+                <IconButton aria-label='Add to pokedex' icon={<AddIcon />} onClick={() => adicionarPokedex(pokemon, setPokedex, setOpen, setPokeSnack, setOpenRelease)}/>
               </ButtonGroup>
             </Tooltip>
 
