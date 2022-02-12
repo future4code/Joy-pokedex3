@@ -1,4 +1,4 @@
-import { React } from 'react'
+import { React, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import useRequestData from "../../hooks/useRequestData";
 import Header from '../../components/header/Header'
@@ -11,15 +11,23 @@ import {
   } from "./styled";
 import { 
   Box,
+  Flex,
   Grid,
   GridItem,
-  Heading
+  Heading,
+  Image,
+  Tooltip
 } from '@chakra-ui/react'
+import capturePokeball from '../../assets/capturePokeball.png'
+import { adicionarPokedex } from '../../services/adicionarPoke';
+import GlobalStateContext from '../../contexts/GlobalContextState';
 
   const DetalhesPage = () => {
     const params = useParams();
     const [pokemon] = useRequestData(`${params.name}`); 
     const pokeType = pokemon && pokemon?.types[0]?.type?.name;
+    const { setPokedex, setOpen, setPokeSnack, setOpenRelease} = useContext(GlobalStateContext);
+
   
     const pokemonTypes =
       pokemon &&
@@ -78,15 +86,15 @@ import {
                     colSpan={[2]} 
                     marginBottom={'20px'}
                   >
-                    <Heading 
-                      as='h1' 
-                      size='2xl' 
-                      alignSelf={'center'} 
-                      textAlign={'center'} 
-                      textTransform={'capitalize'}
-                      marginTop={'15px'}>
-                      {pokemon.name}
-                    </Heading>
+                  <Heading 
+                    as='h1' 
+                    size='2xl' 
+                    alignSelf={'center'} 
+                    textAlign={'center'} 
+                    textTransform={'capitalize'}
+                    marginTop={'15px'}>
+                    {pokemon.name}
+                  </Heading>
                   </GridItem>
                   <GridItem 
                     rowSpan={[1]} 
