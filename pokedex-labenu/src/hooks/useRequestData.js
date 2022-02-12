@@ -4,18 +4,16 @@ import BASE_URL from '../constants/baseURL'
 import { useParams } from 'react-router-dom'
 
 const useRequestData = (endpoint) => {
-    const { id } = useParams()
     const [data, setData] = useState(undefined)
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
 
     useEffect(() => {
         setIsLoading(true)
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+        axios.get(`${BASE_URL}/${endpoint}/`)
         .then((res) =>{
             setIsLoading(false)
             setData(res.data)
-            console.log(res)
         })
         .catch((err) => {
             setIsLoading(false)

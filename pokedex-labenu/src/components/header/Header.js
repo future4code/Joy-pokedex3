@@ -1,5 +1,4 @@
 import { React } from "react";
-import { CustomHeader, LogoBackground, ButtonHeader } from "./styled";
 import logo from "../../assets/Logo.png";
 import { goToPokedex, goToHome} from "../../routes/Coordinator";
 import { useNavigate } from "react-router-dom";
@@ -28,8 +27,19 @@ import StyleColorMode from "../../pages/darkMode/DarkModeButton";
 function Header() {
     const navigate = useNavigate()
   return (
-      <Flex w={"100%"} bg={"#161b25"}  borderBottonColor={"#000000"} boxShadow={'2xl'} h={['125px']} justify={'space-around'} align={'center'}>
-        <Image src={logo} onClick={() => goToHome(navigate)} _hover={{cursor: "pointer"}} maxW={'200px'}></Image>
+      <Flex 
+        w={"100%"} 
+        bg={"#161b25"}  
+        borderBottonColor={"#000000"} 
+        boxShadow={'2xl'} h={['125px']} 
+        justify={'space-around'} 
+        align={'center'}
+        >
+        <Image 
+        src={logo} 
+        onClick={() => goToHome(navigate)} 
+        _hover={{cursor: "pointer"}} 
+        maxW={'200px'} />
         <Flex justify={'flex-end'} align={'center'}>
           <Menu>
             <MenuButton

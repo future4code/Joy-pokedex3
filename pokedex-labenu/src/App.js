@@ -3,19 +3,20 @@ import Router from './routes/Router';
 import GlobalStyle from './constants/GlobalStyle';
 import { ChakraProvider } from '@chakra-ui/react';
 import GlobalState from './contexts/GlobalState';
-import axios from 'axios';
-import BASE_URL from './constants/baseURL';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
-
-return (
-  <ChakraProvider>
-    {/* <GlobalState.Provider> */}
-      <GlobalStyle />
-      <Router />
-    {/* </GlobalState.Provider> */}
-  </ChakraProvider>
-)
-}
+  return (
+    <>
+      <GlobalState>
+        <ChakraProvider>
+            <GlobalStyle />
+              <BrowserRouter>
+                <Router />
+              </BrowserRouter>
+        </ChakraProvider>
+      </GlobalState>
+    </>
+  )};
 
 export default App
