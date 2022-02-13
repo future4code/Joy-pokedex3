@@ -22,7 +22,8 @@
 * Axios: um cliente para fazer requisições 
 * Chakra-ui: biblioteca React 
  
-Imagens:
+<h3>Imagens:</h3>
+
 ![1](https://user-images.githubusercontent.com/89319592/153751678-081b7297-b2d3-419c-8776-3689f12e7493.png)
 ![2](https://user-images.githubusercontent.com/89319592/153751679-2b80dadc-cf6b-47ea-b9d5-b3b289fa9379.png)
 ![3](https://user-images.githubusercontent.com/89319592/153751680-ac24bd7e-24c5-43dd-84d8-b8ea4af087fb.png)
