@@ -102,10 +102,18 @@ export default function CardPokemon({ name, pokemon, removerPokedex }) {
           <IconButton 
               aria-label='Add to pokedex' 
               icon={<DeleteIcon />} 
+              onClick={() => removerPokedex(pokemon, pokedex, setPokedex, setPokeSnackRelease, setOpenRelease, setOpen)}
               bg={'red.400'}
               />
           </ButtonGroup>
       </Tooltip>
+      <Tooltip
+              label={'Detalhes'}>
+              <ButtonGroup size='sm' isAttached variant='outline'>
+                <Button  onClick={() => goToDetalhes(navigate, pokemon.name)} mr='-px'>Detalhes</Button>
+                <IconButton  onClick={() => goToDetalhes(navigate, pokemon.name)} aria-label='Details' icon={<BsInfoCircle/>} />
+              </ButtonGroup>
+            </Tooltip>
       </Box>
   </Flex>
   );
