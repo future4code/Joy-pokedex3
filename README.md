@@ -5,7 +5,7 @@ Nome dos integrantes:
 - Lucas Txai Medeiros da Fonceca
 - Adriano Becco Nunes
 
-Link do Surge: pokedex-joy.surge.sh
+Link do Surge: www.pokedex-joy.surge.sh
 
 O que funciona:
 - Adicionar e Remover da Pokedex
