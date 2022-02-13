@@ -1,13 +1,13 @@
 # POKEDEX 
 
-Nome dos integrantes: 
+<h3>Nome dos integrantes:</h3>
 - João Lucas Roque Cerqueira
 - Lucas Txai Medeiros da Fonceca
 - Adriano Becco Nunes
 
 Link do Surge: www.pokedex-joy.surge.sh
 
-O que funciona:
+<h3>O que funciona:</h3>
 - Adicionar e Remover da Pokedex
 - Visualizar uma página de detalhes ao clicar no card o pokemon a partir da página home ou página pokedex
 - Responsividade
