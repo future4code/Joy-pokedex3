@@ -6,7 +6,7 @@
 - Lucas Txai Medeiros da Fonceca
 - Adriano Becco Nunes
 
-Link do Surge: www.pokedex-joy.surge.sh
+<h3>Link do Surge:</h3> www.pokedex-joy.surge.sh
 
 <h3>O que funciona:</h3>
 
